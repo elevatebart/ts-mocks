@@ -1,18 +1,16 @@
-import Spy = jasmine.Spy;
-
 const UNDEFINED_STRING = 'undefined';
 const FUNCTION_STRING = 'function';
 
 export class Setup<T, TReturn> {
     
-    private spy: Spy;
+    private spy: jasmine.Spy;
+    
+    private object: T;
+    private key: keyof T;
 
-    constructor(
-        private object: T,
-        private key: string        
-    ) {
-        this.object[key] = <T>{};
-        this.spy = spyOn(this.object, key);         
+    constructor(object: T, key: keyof T) {
+        this.object[<string>key] = <T>{};
+        this.spy = spyOn(this.object, key);
     }
 
     public get Spy() {
@@ -22,7 +20,7 @@ export class Setup<T, TReturn> {
     /** Setup the return value for the setup of the property */
     public is(value: TReturn) : Setup<T, TReturn> {       
 
-        this.object[this.key] = value;            
+        this.object[<string>this.key] = value;            
         if(typeof(value) === FUNCTION_STRING) {
             this.spy = spyOn(this.object, this.key).and.callThrough();
         }

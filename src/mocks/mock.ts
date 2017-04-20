@@ -23,7 +23,7 @@ export class Mock<T> {
     public setup<TProp>(value: (obj: T) => TProp): Setup<T, TProp> {
         let propertyName = value.toString().match(/return(\s\$_\$\(\d+,\s\d+\),)?\s[\w\d_]*\.([\w\d$_]*)\;/)[2];
 
-        return new Setup(this._object, propertyName);
+        return new Setup(this._object, <keyof T>propertyName);
     }       
 }
 
