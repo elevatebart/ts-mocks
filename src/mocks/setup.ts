@@ -4,11 +4,11 @@ const FUNCTION_STRING = 'function';
 export class Setup<T, TReturn> {
     
     private spy: jasmine.Spy;
-    
-    private object: T;
-    private key: keyof T;
 
-    constructor(object: T, key: keyof T) {
+    constructor(
+        private object: T,
+        private key: keyof T
+    ) {
         this.object[<string>key] = <T>{};
         this.spy = spyOn(this.object, key);
     }
