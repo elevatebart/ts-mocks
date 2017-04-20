@@ -1,19 +1,23 @@
 {
-  "version": "0.2.2",
-  "description": "Use ts-mocks to create Mock<T> objects for during Unit Tests",
-  "author": {
+  "version": "1.0.0",
+  "description": "Use ts-mocks to create Mock<T> objects for during Unit Tests And make sur eit's compatible with wallabyjs.com instrumentation",
+  "authors": [{
     "name": "Johan Herscheid <johanherscheid@gmail.com>"
-  },
+  },{
+    "name": "Bart Ledoux <ledouxb@me.com>"
+  }],
   "scripts": {
     "prebuild": "typings install && rimraf lib",
     "build": "tsc"
   },
   "keywords": [
     "typescript",
-    "mocking"
+    "mocking",
+    "wallabyjs",
+    "wallaby"
   ],
   "license": "MIT",
-  "name": "ts-mocks",
+  "name": "ts-mocks-wallaby",
   "main": "lib/index.js",
   "typings": "lib/index",
   "files": [
@@ -22,8 +26,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jjherscheid/ts-mocks.git"
+    "url": "git://github.com/elevatebart/ts-mocks-wallaby.git"
   },
+  "issues": "https://github.com/elevatebart/ts-mocks-wallaby/issues",
   "devDependencies": {
     "jasmine": "^2.5.2",
     "rimraf": "^2.5.4",
